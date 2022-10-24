@@ -8,7 +8,7 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /quick-start
+      link: /guide/introduction.html
     - theme: alt
       text: View on GitHub
       link: https://github.com/aerotoad/xeito
