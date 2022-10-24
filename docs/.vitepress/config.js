@@ -1,5 +1,6 @@
 export default {
-
+  
+  base: '/xeito-docs/',
   title: 'Xeito',
   description: 'Typescript framework for building web applications',
   themeConfig: {
