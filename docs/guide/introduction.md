@@ -113,3 +113,51 @@ export class MyComponent {
 }
 
 ```
+
+#### What's happening here?
+
+It may look complicated but it's actually not, let's take a look at the first class: ``GreeterService`` as we mentioned before is decorated with 
+the ``@Injectable()`` decorator. This tells Xeito it needs to keep an instance of it to be accessible by the components.
+
+After that, we decorate a property of ``MyComponent`` with a ``@Inject()`` decorator. This property can have any name we want, but it needs 
+to have the type of the service we want to inject, this way Xeito knows what to look for.
+Now our component has access to all the public methods and properties of the service and can call them whenever it needs to. Since the service is
+a ***singleton*** (there is only one instance of it for the entire app), its inner state is shared no matter how many components use it.
+
+## JSX and the VirtualDOM
+
+You might have noticed our components are not importing some HTML template, instead they have a ``render()`` method that returns something 
+that resembles it. That's JSX and it's the way Xeito handles the component's template.
+
+Briefly explained, under the hood Xeito uses a library called [snabbdom](https://github.com/snabbdom/snabbdom). This library provides a 
+VirutalDOM, which is a memory representation of the actual HTML DOM and compares both to know when to update the page.
+To be able to do this, a special function call is needed: ``Xeito.createElement()`` is that function and it works like this:
+
+```ts
+  Xeito.createElement(
+    'span',
+    { style: { fontWeight: 'normal', fontStyle: 'italic' } },
+    'Some text content'
+  );
+```
+
+But having to do something like that every time you want to create a new element in your page would be a little bit cumbersome and more prone to errors.
+That's where JSX comes to the rescue.
+
+At it's core, JSX is just syntactic sugar for functions like the above, so you could achieve the same result by writing this:
+
+```tsx
+  <span style={{ fontWeight: 'normal', fontStyle: 'italic' }}>
+    Some text content
+  </span>
+```
+
+Now it's much more readable and can be used similarly to how you would use traditional HTML. This JSX will later be converted 
+to calls to ``Xeito.createElement()`` by the Typescript compiler so you don't have to worry about creating complex nested function calls.
+
+
+
+## Ready for more?
+
+We've briefly introduced some of the main features of Xeito's core. The rest of the documentation will cover these two and other more advanced
+features in much finer detail.
