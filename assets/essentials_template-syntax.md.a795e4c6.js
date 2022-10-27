@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as a}from"./app.d4db8e39.js";const _=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"essentials/template-syntax.md"}'),s={name:"essentials/template-syntax.md"};function n(r,o,c,p,i,l){return a(),t("div")}const d=e(s,[["render",n]]);export{_ as __pageData,d as default};

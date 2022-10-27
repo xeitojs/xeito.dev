@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as s}from"./app.c0b2151f.js";const l=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"essentials/props.md"}'),a={name:"essentials/props.md"};function r(o,n,p,c,i,_){return s(),t("div")}const m=e(a,[["render",r]]);export{l as __pageData,m as default};

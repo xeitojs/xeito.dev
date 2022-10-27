@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as s}from"./app.c0b2151f.js";const f=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"essentials/lifecycle.md"}'),a={name:"essentials/lifecycle.md"};function c(r,n,o,i,l,p){return s(),t("div")}const d=e(a,[["render",c]]);export{f as __pageData,d as default};

@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as n}from"./app.d4db8e39.js";const _=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"essentials/event-handling.md"}'),a={name:"essentials/event-handling.md"};function s(r,o,c,i,d,l){return n(),t("div")}const m=e(a,[["render",s]]);export{_ as __pageData,m as default};
