@@ -3,9 +3,9 @@
 As we mentioned in the [Introduction](../guide/introduction.md#tagged-template-literals) guide, the template syntax is based on 
 [tagged template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals), 
 which allows us to write HTML inside of JavaScript (without transpilation) and create our UI declaratively.
-All Xeito templates can be syntactically valid HTML, but they can also contain special Xeito-specific tags and attributes that allow us to create dynamic components and bind data to them.
+All Xeito templates can be syntactically valid HTML, but they can also contain special specific tags and attributes that allow us to create dynamic components and bind data to them.
 
-Under the hood Xeito uses [µhtml](https://github.com/webreflection/uhtml) that will take care of creating and updating the DOM based on the template literals and figure out them minimnal amount of changes to apply to the DOM.
+Under the hood Xeito uses [µhtml](https://github.com/webreflection/uhtml) that will take care of creating and updating the DOM based on the template literals and figure out the minimnal amount of changes to apply to the DOM.
 
 ## Text Interpolation
 
@@ -22,7 +22,7 @@ Xeito will track the changes in the property and update the DOM automatically wh
 
 ## Attribute and Property Bindings
 
-Xeito supports attribute and property bindings for all HTML elements and components, this means that you can bind any property or attribute of an element/component to a property of your component class. (Note that attributes are always strings, while properties can be any type of value).
+Xeito supports attribute and property bindings for all HTML elements and components, this means that you can bind any property or attribute of an element/component to a property/variable/method of your component class. (Note that attributes are always strings, while properties can be any type of value).
 
 You can bind data to an attribute like this:
 

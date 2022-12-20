@@ -38,7 +38,7 @@ AppComponent (root component)
    └─ UserMessages
 ```
 
-Later we will how to compose multiple components together to build a complex UI and how to use the Xeito router to navigate between different views, but for now we will start with a simple component and what happens inside of it.
+Later we will see how to compose multiple components together to build a complex UI and how to use the Xeito router to navigate between different views, but for now we will start with a simple component and what happens inside of it.
 
 ## Bootstrapping the application
 
