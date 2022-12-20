@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as a}from"./app.c0b2151f.js";const _=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"essentials/conditional.md"}'),n={name:"essentials/conditional.md"};function o(s,c,r,i,d,l){return a(),t("div")}const m=e(n,[["render",o]]);export{_ as __pageData,m as default};

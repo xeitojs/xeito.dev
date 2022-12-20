@@ -1,0 +1,1 @@
+import{_ as e,c as t,o}from"./app.6b6496f8.js";const u=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"routing/nested-routes.md"}'),r={name:"routing/nested-routes.md"};function s(n,a,c,d,i,p){return o(),t("div")}const m=e(r,[["render",s]]);export{u as __pageData,m as default};
