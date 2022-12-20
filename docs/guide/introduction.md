@@ -6,7 +6,7 @@ title: Introduction
 
 ::: warning ACTIVE DEVELOPMENT
   **Xeito** is still under active development, therefore everything is still **unstable** and untested.
-  API may introduce **breaking changes** between minor versions without much notice.
+  API may introduce **breaking changes** between minor versions without notice.
 :::
 
 ## What is Xeito?
@@ -14,16 +14,30 @@ title: Introduction
 Xeito (pronounced /ˈʃejto̝/, [from Galician](https://en.wiktionary.org/wiki/xeito): "way", "manner" or "fashion") 
 is a [Typescript](https://www.typescriptlang.org/) framework for building web applications.
 
-It builds on top of the powerful features of Typescript and JSX, and provides a component-based programming model 
+It builds on top of the powerful features of Typescript and 
+[Tagged Template Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals), 
+providing a component-based programming model 
 that helps you develop user applications, no matter the complexity.
 
-Let's see an example of a barebones Xeito component:
+Let's see an example of a barebones Xeito application:
 
-```tsx
-import { Xeito, Component } from '@xeito/core';
+```ts
+// main.ts
+import { Xeito } from '@xeito/core';
+import { AppComponent } from './app-component';
 
-@Component()
-export class Counter {
+const app = new Xeito(AppComponent);
+app.boostrap('#app');
+```
+
+```ts
+// app-component.ts
+import { Component, XeitoComponent, State, html } from '@xeito/core';
+
+@Component({
+  selector: 'app-root',
+})
+export class Counter extends XeitoComponent {
 
   @State() count: number = 0;
 
@@ -32,26 +46,26 @@ export class Counter {
   }
 
   render() {
-    return (
+    return html`
       <div>
-        <button onclick={()=>this.increment()}>
-          Count is: { this.count }
+        <button @click=${this.increment}>
+          Count is: ${this.count}
         </button>
       </div>
-    );
+    `;
   }
 }
 ```
 
 Above we can see two basic features of Xeito:
 
-- **JSX**: Xeito uses [JSX](https://www.typescriptlang.org/docs/handbook/jsx.html) to compose the template inside 
-the render method of a component and it allows us to declaratively declare the HTML output based on the Typescript state.
+- **Tagged Template Literal**: Xeito uses [Tagged Template Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) 
+to compose the template inside the render method of a component and it allows you to declaratively create the DOM tree of your component.
 
-- **Reactivity**: Xeito tracks state changes automatically and updates the DOM when changes happen.
+- **Reactivity**: Xeito tracks the state of your components and updates the DOM when it changes. This is done by using the ``@State()`` and ``@Prop()`` decorators (more on that later).
 
 ::: tip PREREQUISITES
-  The documentation assumes familiarity with HTML/JSX, CSS and Typescript.
+  The documentation assumes familiarity with HTML, CSS and Typescript.
   Please, if you are unsure if your knowledge level will suffice, check it at
   [Mozilla Language Overview](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Language_Overview)
   and the [Typescript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html).
@@ -63,9 +77,12 @@ the render method of a component and it allows us to declaratively declare the H
 
 Components are the building blocks you will use to compose an application using Xeito.
 A component is just a Typescript class with a ``@Component()`` decorator, a ``render()``
-method that returns the template and, optionally, style files.
+method that returns the template and, optionally, style strings.
 
-The ``@Component()`` decorator is just syntactic sugar that helps Xeito identify a component as valid during render.
+Xeito registers your components inside the [custom elements registry](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry), 
+so you can use them in your HTML templates. Even if Xeito leverages the web components standard, you don't need to know anything about it to use Xeito 
+and its components are not designed to be used outside of the framework.
+
 
 ## Services
 
@@ -78,15 +95,17 @@ The main objective of the services is to organize your logic, data and functions
 Just like the **Components**, a Xeito service is just a Typescript class with a ``@Injectable()`` decorator that will tell Xeito it needs to 
 instantiate it and make it accessible for the components.
 
-After a service is created, it can be injected into a component by adding a property with the ``@Inject()`` decorator that has the type of the service.
+After a service is created, it can be injected into a component by adding a property with the ``@Inject()`` decorator.
 
 This can sound confusing, but in reality it's very simple to implement. Let's see an example:
 
 We start by creating a new service like this:
 
 ```ts
-// my-service.tsx
-@Injectable()
+// my-service.ts
+@Injectable({
+  selector: 'greeterService'
+})
 export class GreeterService {
 
   greet(name: string) {
@@ -98,16 +117,17 @@ export class GreeterService {
 ```
 
 And then we *inject* it into a component
-```tsx
-// my-component.tsx
+```ts
+// my-component.ts
 @Component()
 export class MyComponent {
 
   @Inject() greeterService: GreeterService
 
   constructor() {
+    super();
     // Now we can call the methods of the service
-    this.greeterService.greet('World');
+    this.greeterService.greet('World'); // Logs 'Hello World!'
   }
 
 }
@@ -117,45 +137,30 @@ export class MyComponent {
 #### What's happening here?
 
 It may look complicated but it's actually not, let's take a look at the first class: ``GreeterService`` as we mentioned before is decorated with 
-the ``@Injectable()`` decorator. This tells Xeito it needs to keep an instance of it to be accessible by the components.
+the ``@Injectable()`` decorator. This tells Xeito it needs to keep an instance of it to be accessible by the components. 
 
-After that, we decorate a property of ``MyComponent`` with a ``@Inject()`` decorator. This property can have any name we want, but it needs 
-to have the type of the service we want to inject, this way Xeito knows what to look for.
+The specified ``selector`` key tells the framework what name it has so it can be injected by a component later.
+
+After that, we decorate a property of ``MyComponent`` with a ``@Inject()`` decorator. The property name will be used to find the service we want 
+to inject (the one with the ``selector`` key we specified before). We can also specify a name in the decorator like this: ``@Inject('greeterService')`` if we want to use a different name for the property.
+
 Now our component has access to all the public methods and properties of the service and can call them whenever it needs to. Since the service is
 a ***singleton*** (there is only one instance of it for the entire app), its inner state is shared no matter how many components use it.
+We can use this to create global state containers, cache http responses or any other kind of data that needs to be shared between components.
 
-## JSX and the VirtualDOM
+## Tagged Template Literals
 
-You might have noticed our components are not importing some HTML template, instead they have a ``render()`` method that returns something 
-that resembles it. That's JSX and it's the way Xeito handles the component's template.
-
-Briefly explained, under the hood Xeito uses a library called [snabbdom](https://github.com/snabbdom/snabbdom). This library provides a 
-VirutalDOM, which is a memory representation of the actual HTML DOM and compares both to know when to update the page.
-To be able to do this, a special function call is needed: ``Xeito.createElement()`` is that function and it works like this:
+You might have noticed our components are not importing some HTML template, instead they have a ``render()`` method that returns a tagged template string, 
+the contents of the string are a declarative HTML string:
 
 ```ts
-  Xeito.createElement(
-    'span',
-    { style: { fontWeight: 'normal', fontStyle: 'italic' } },
-    'Some text content'
-  );
+  html`<div>Hello ${name}!</div>`;
 ```
 
-But having to do something like that every time you want to create a new element in your page would be a little bit cumbersome and more prone to errors.
-That's where JSX comes to the rescue.
-
-At it's core, JSX is just syntactic sugar for functions like the above, so you could achieve the same result by writing this:
-
-```tsx
-  <span style={{ fontWeight: 'normal', fontStyle: 'italic' }}>
-    Some text content
-  </span>
-```
-
-Now it's much more readable and can be used similarly to how you would use traditional HTML. This JSX will later be converted 
-to calls to ``Xeito.createElement()`` by the Typescript compiler so you don't have to worry about creating complex nested function calls.
-
-
+Briefly explained, under the hood Xeito uses a library called [µhtml](https://github.com/webreflection/uhtml). This library provides a set of utilities
+to create and update the DOM content based on this template literals, to be able to do this they are tagged with the ``html`` function.
+Tagging template literals this way allows the function to receive the an array of strings and an array of the expressions interpolated within, 
+µhtml uses this to create the DOM tree and update only the parts that change.
 
 ## Ready for more?
 

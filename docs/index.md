@@ -18,15 +18,18 @@ features:
   - icon: 📦
     title: Component based
     details: Build components with ease and compose them together to create complex UIs. 
-      With Snabbdom's virtualDOM managing updates, performance is assured.
+      Using Tagged Template Literals, you can write HTML and CSS in your Typescript code with syntax highlighting and autocompletion.
   - icon: 💉
     title: Dependency Injection
-    details: Xeito provides a global service registry. Declare your services once and use them anywhere in your app.
+    details: Xeito provides a built-in dependency injection system that allows you to easily inject dependencies into your components.
+      Share global state across your application with ease.
   - icon: 🗺️
     title: Simple, yet powerful router
     details: The framework comes with a built-in routing solution that's easy to configure while providing a lot of flexibility.
+      Nested routes, route guards, route params, and more are all supported out of the box.
   - icon: 🪄
     title: Reactivity by default
     details: Xeito ships with RxJS and uses it under the hood, providing you with access to all the power of its operators and observables.
+      All the benefits of reactive programming are available to you with no extra effort.
 
 ---
