@@ -49,25 +49,35 @@ export default {
         ]
       },
       {
-        text: 'Services',
+        text: 'Components',
         items: [
-          { text: 'Creating a service', link: '/services/creating' },
-          { text: 'Injecting a service', link: '/services/injecting' },
+          { text: 'Component Structure', link: '/components/structure' },
+          { text: 'State', link: '/components/state' },
+          { text: 'Props', link: '/components/props' },
+          { text: 'Events', link: '/components/events' },
+          { text: 'Slotted Content', link: '/components/slotted-content' },
+          { text: 'Imperative DOM', link: '/components/imperative-dom' },
+          { text: 'Global properties', link: '/components/global' },
+        ]
+      },
+      {
+        text: 'Reusability',
+        items: [
+          { text: 'Services', link: '/reusability/services' },
+          { text: 'Actions', link: '/reusability/actions' },
+          { text: 'Pipes', link: '/reusability/pipes' },
+          { text: 'Plugins', link: '/reusability/plugins' },
         ]
       },
       {
         text: 'Routing',
         items: [
-          { text: 'Using the router', link: '/routing/router' },
-          { text: 'Defining routes', link: '/routing/defining-routes' },
-          { text: 'Navigation', link: '/routing/navigation' },
-        ]
-      },
-      {
-        text: 'Advanced routing',
-        items: [
-          { text: 'Nested navigation', link: '/advanced-routing/nested-navigation' },
-          { text: 'Route guards', link: '/advanced-routing/guards' },
+          { text: 'Using the router', link: '/routing/using' },
+          { text: 'Router Components', link: '/routing/router-components' },
+          { text: 'Dynamic Route Matching', link: '/routing/dynamic-matching' },
+          { text: 'Nested Routes', link: '/routing/nested-routes' },
+          { text: 'Programmatic Navigation', link: '/routing/programmatic-navigation' },
+          { text: 'Route Guards', link: '/routing/guards' },
         ]
       }
     ]
