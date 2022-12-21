@@ -39,13 +39,8 @@ export default {
         items: [
           { text: 'Creating an application', link: '/essentials/application' },
           { text: 'Template syntax', link: '/essentials/template-syntax' },
-          { text: 'Styles', link: '/essentials/styles' },
-          { text: 'Conditional rendering', link: '/essentials/conditional' },
-          { text: 'List rendering', link: '/essentials/list' },
-          { text: 'Event handling', link: '/essentials/event-handling' },
-          { text: 'Form input binding', link: '/essentials/forms' },
-          { text: 'Lifecycle hooks', link: '/essentials/lifecycle' },
-          { text: 'Component props', link: '/essentials/props' },
+          { text: 'Lists and conditionals', link: '/essentials/lists-and-conditionals' },
+          { text: 'Event handling', link: '/essentials/event-handling' }
         ]
       },
       {
