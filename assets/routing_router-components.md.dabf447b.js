@@ -1,1 +1,0 @@
-import{_ as t,c as e,o}from"./app.d6637636.js";const d=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"routing/router-components.md"}'),r={name:"routing/router-components.md"};function n(a,s,c,p,i,m){return o(),e("div")}const u=t(r,[["render",n]]);export{d as __pageData,u as default};
