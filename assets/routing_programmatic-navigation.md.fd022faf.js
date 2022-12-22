@@ -1,1 +1,0 @@
-import{_ as t,c as a,o as r}from"./app.6b6496f8.js";const d=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"routing/programmatic-navigation.md"}'),e={name:"routing/programmatic-navigation.md"};function o(n,i,c,s,m,p){return r(),a("div")}const g=t(e,[["render",o]]);export{d as __pageData,g as default};

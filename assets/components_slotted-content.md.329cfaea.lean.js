@@ -1,1 +1,0 @@
-import{_ as t,c as e,o}from"./app.6b6496f8.js";const i=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"components/slotted-content.md"}'),n={name:"components/slotted-content.md"};function s(a,c,r,p,d,_){return o(),e("div")}const l=t(n,[["render",s]]);export{i as __pageData,l as default};

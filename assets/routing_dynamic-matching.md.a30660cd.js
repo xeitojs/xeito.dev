@@ -1,0 +1,1 @@
+import{_ as t,c as a,o as e}from"./app.d6637636.js";const _=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"routing/dynamic-matching.md"}'),n={name:"routing/dynamic-matching.md"};function c(r,o,i,s,m,d){return e(),a("div")}const f=t(n,[["render",c]]);export{_ as __pageData,f as default};
