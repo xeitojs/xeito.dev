@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as a}from"./app.d6637636.js";const l=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"reusability/pipes.md"}'),s={name:"reusability/pipes.md"};function r(o,p,i,c,n,_){return a(),t("div")}const m=e(s,[["render",r]]);export{l as __pageData,m as default};
