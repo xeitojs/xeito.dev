@@ -68,9 +68,9 @@ render() {
 }
 ```
 
-## The `slot` attribute
+## The `slot` element
 
-The `slot` attribute is only available when using Shadow DOM, so if you want to use it, you need to enable Shadow DOM for your component.
+The `slot` element is only available when using Shadow DOM, so if you want to use it, you need to enable Shadow DOM for your component.
 To do this, you need to add the `shadow` property to the `@Component()` decorator:
 
 ```typescript
@@ -86,7 +86,7 @@ export class MyComponent extends HTMLElement {
 }
 ```
 
-Now, you can use the `slot` attribute to render the component's content in the same way as you would do with the native `<slot>` element:
+Now, you can use the `slot` element to render the component's content in the same way as you would do with the native `<slot>` element:
 
 ```html
 <my-component>
@@ -112,3 +112,37 @@ render() {
   `;
 }
 ```
+
+::: warning Shadow DOM and CSS
+When using Shadow DOM you need to be aware that the global CSS styles won't reach the component's shadow root, so you need to
+use the `:host` selector to style the component from the outside:
+
+```css
+/* my-component.css */
+:host {
+  display: block;
+  background-color: #eee;
+}
+```
+You can also provide styles for a Shadow DOM component by using the `styles` property in the `@Component()` decorator:
+
+```typescript
+// my-component.ts
+import { Component } from '@xeito/core';
+
+@Component({
+  selector: 'my-component',
+  shadow: true,
+  styles: [`
+    .my-component-content {
+      display: block;
+      background-color: #eee;
+    }
+  `]
+})
+```
+Styles defined in the `styles` property will be appended as a `<style>` element inside the component's shadow root and won't affects
+the global CSS scope.
+
+
+:::

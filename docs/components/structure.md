@@ -60,7 +60,7 @@ The ``render()`` method is called every time the component state or properties c
 
 ## Component Methods
 
-You can define methods in the component class that can be used in the template or by other methods, all the methods are automatically bound to the component instance and can be used directly in the template as we've seen in the [Event Handling](../essentials/events.md) section.
+You can define methods in the component class that can be used in the template or by other methods, all the methods are automatically bound to the component instance and can be used directly in the template as we've seen in the [Event Handling](../essentials/event-handling.md) section.
 
 Being bound to the component instance means that you need to wrap the method in an arrow function if you want to pass parameters to it from the template.
 
