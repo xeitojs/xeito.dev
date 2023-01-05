@@ -37,7 +37,7 @@ In this example we can see how the `count` property is decorated with the `@Stat
 
 Reactivity in Xeito is triggered by assignments, this means that methods that mutate arrays or objects won't trigger a re-render by themselves, you need to assign the new value to the property for it to trigger a re-render.
 
-You can fix this by assigning the new value to the property, for example:
+You can fix this by assigning the new value to the property directly, for example:
 
 ```typescript
 // my-component.ts
