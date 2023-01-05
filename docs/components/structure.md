@@ -89,6 +89,52 @@ You can define properties in the component class that can be used in the templat
 By default properties are not reactive, but you can make the template re-render when a property changes by using the `@State()` decorator.
 We'll see more about this in the [State](./state.md) section.
 
+## Nesting Components
+
+One of the main advantages of using components is that you can nest them inside each other.
+To be able to render another component inside a component's template you need to import the component class and provide it in the component metadata, 
+after that you can use the component selector as a tag in the template.
+
+Let's create a `CounterComponent` that has a button to increment a counter and a paragraph to show the current count:
+```typescript
+// counter.component.ts
+import { Component, XeitoComponent, State, html } from '@xeito/core';
+
+@Component({
+  selector: 'app-counter'
+})
+export class CounterComponent extends XeitoComponent {
+
+  @State() count = 0;
+
+  render() {
+    return html`
+      <button @click=${()=> this.count++}>Click Me</button>
+      <p>Count: ${this.count}</p>
+    `;
+  }
+}
+```
+We can now use the `app-counter` selector in the template of another component, for example the `app-root` component:
+```typescript
+// app-root.component.ts
+import { Component, XeitoComponent, html } from '@xeito/core';
+import { CounterComponent } from './counter.component';
+
+@Component({
+  selector: 'app-root',
+  imports: [CounterComponent] // Import the component to be used in the template
+})
+export class AppRoot extends XeitoComponent {
+
+  render() {
+    return html`
+      <h1>Hello World</h1>
+      <app-counter></app-counter>
+    `;
+  }
+}
+```
 ## Component Lifecycle
 
 Xeito components have a set of lifecycle methods that are called at different stages of the component lifecycle. These methods are optional and you can define them in the component class to execute code at the corresponding stage.
