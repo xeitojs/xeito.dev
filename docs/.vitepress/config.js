@@ -3,6 +3,7 @@ export default {
   base: '/xeito-docs/',
   title: 'Xeito',
   description: 'Typescript framework for building web applications',
+  appearance: 'dark',
   themeConfig: {
     nav: [
       {
