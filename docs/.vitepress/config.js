@@ -54,6 +54,7 @@ export default {
           { text: 'Slotted Content', link: '/components/slotted-content' },
           { text: 'Imperative DOM', link: '/components/imperative-dom' },
           { text: 'Global properties', link: '/components/global' },
+          { text: 'Manual Updates', link: '/components/manual-updates' },
         ]
       },
       {
