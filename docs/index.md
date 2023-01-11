@@ -5,6 +5,9 @@ hero:
   name: Xeito Framework
   text: Harness the power of the web
   tagline: Opinionated Typescript framework for building web applications.
+  image:
+    src: assets/logo_gradient.svg
+    alt: Xeito
   actions:
     - theme: brand
       text: Get Started
