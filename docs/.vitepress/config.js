@@ -5,6 +5,7 @@ export default {
   description: 'Typescript framework for building web applications',
   appearance: 'dark',
   themeConfig: {
+    logo: '/images/logo_gradient.svg',
     nav: [
       {
         text: 'Docs',
