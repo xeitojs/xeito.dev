@@ -74,3 +74,22 @@ onDidMount() {
   console.log(this.children);   // Will log the component's children
 }
 ```
+In the same way, all other native methods are available to be used in the component.
+```typescript
+// my-component.ts
+onDidMount() {
+  // Accessing the DOM after the component is mounted
+  const container = this.querySelector('.custom-container') 
+  //=> Will return the first element with the class 'custom-container'
+  container.classList.add('custom-class'); 
+  //=> Will add the class 'custom-class' to the element
+  container.innerHTML = 'Hello Xeito!'; 
+  //=> Will change the element's inner HTML
+}
+
+render() {
+  return html`
+    <div class="custom-container">Hello world!</div>
+  `;
+}
+```
