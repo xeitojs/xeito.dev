@@ -51,6 +51,7 @@ export default {
           { text: 'Component Structure', link: '/components/structure' },
           { text: 'State', link: '/components/state' },
           { text: 'Props', link: '/components/props' },
+          { text: 'Watching properties', link: '/components/watching' },
           { text: 'Events', link: '/components/events' },
           { text: 'Slotted Content', link: '/components/slotted-content' },
           { text: 'Imperative DOM', link: '/components/imperative-dom' },
