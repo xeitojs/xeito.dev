@@ -24,7 +24,7 @@ with the `@Prop()` decorator. The name of the decorated class property will be t
 
 ```typescript
 // my-component.ts
-@Prop() currentCount: string;
+@Prop() currentCount: number;
 
 render() {
   return html`
@@ -37,6 +37,31 @@ render() {
 ```
 
 The properties decorated with the `@Prop()` decorator will automatically trigger a re-render when they are changed by the parent component.
+
+## Reacting to Prop changes
+Sometimes you might need to execute custom code whenever a property is updated. For those cases Xeito provides a way to receive all the prop updates
+in your class with the `onPropChange()` method.
+
+```typescript
+// my-component.ts
+@Prop() currentCount: number;
+
+onPropChange(change: PropChange) {
+  if (change.name == 'currentCount') {
+    console.log(`Old value: ${change.oldValue}`);
+    console.log(`New value: ${change.newValue}`);
+  }
+}
+```
+
+The `onPropChange()` method receives a `PropChange` object with the following properties:
+```typescript
+interface PropChange {
+  name: string;      // The name of the prop that changed
+  oldValue: string;  // The old value of the property before the change
+  newValue: string;  // The new value of the property after the change
+}
+```
 
 ## Imperative attribute access
 
