@@ -1,4 +1,4 @@
-# Watching State and Props
+# Watchers
 
 In the previous sections ([State](state.md) and [Props](props.md)), we learned how to use the `@State()` and `@Prop()` decorator to make our components dynamic.
 These decorators are reactive, which means that when the value of the state or prop changes, the component's template will be updated with the new values.
