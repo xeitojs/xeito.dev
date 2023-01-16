@@ -1,11 +1,18 @@
 # Template Syntax
 
-As we mentioned in the [Introduction](../guide/introduction.md#tagged-template-literals) guide, the template syntax is based on 
-[tagged template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals), 
+As we mentioned in the [Introduction](../guide/introduction.md#tagged-template-literals) guide, the component template is defined using [tagged template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals),
 which allows us to write HTML inside of JavaScript (without transpilation) and create our UI declaratively.
-All Xeito templates can be syntactically valid HTML, but they can also contain special specific tags and attributes that allow us to create dynamic components and bind data to them.
+All the templates can be syntactically valid HTML, but they can also contain special specific tags and attributes that allow us to create dynamic components and 
+bind data and events to the DOM easily.
 
-Under the hood Xeito uses [µhtml](https://github.com/webreflection/uhtml) that will take care of creating and updating the DOM based on the template literals and figure out the minimnal amount of changes to apply to the DOM.
+Under the hood Xeito uses [µhtml](https://github.com/webreflection/uhtml) an ultra-lightweight (~2.5KB) library that will create the DOM tree for us
+and perform the minimum amount of operations to update the DOM when the state of the component changes.
+It can be seen as a very lightweight version of [lit-html](https://lit-html.polymer-project.org/) (which is used by [lit-element](https://lit.dev/)).
+
+::: info NOTE ON NAMING 
+  In this documentation we will use the terms **component** and **element** interchangeably.
+  Even though a component is created with Xeito while an element native HTML, all the same rules apply to both.
+:::
 
 ## Text Interpolation
 
@@ -22,7 +29,7 @@ Xeito will track the changes in the property and update the DOM automatically wh
 
 ## Attribute and Property Bindings
 
-Xeito supports attribute and property bindings for all HTML elements and components, this means that you can bind any property or attribute of an element/component to a property/variable/method of your component class. (Note that attributes are always strings, while properties can be any type of value).
+Attribute and property bindings are supported out of the box, this means that you can bind any property or attribute of an component to a property or method of your component class. (Note that attributes are always strings, while properties can be any type of value).
 
 You can bind data to an attribute like this:
 
@@ -47,7 +54,7 @@ The content after the ``=`` sign can be wrapped in quotes or not (``myAttribute=
 
 Boolean attributes can indicate true/false values depending on the presence of the attribute or not. For example, the ``disabled`` attribute of a ``<button>`` element will disable the button if it is present, and enable it if not.
 
-You can bind them like any other attribute, but Xeito also provides a special syntax for boolean attributes:
+You can bind them like any other attribute, but a special shorthand syntax is available for boolean attributes by using the ``?`` prefix:
 
 ```ts
 html`<button ?disabled=${this.disabled}>Can I click?</button>`;
@@ -73,7 +80,7 @@ html`<div .dataset=${{key: 'value', otherKey: 'otherValue'}} />`;
 
 ## Using JavaScript Expressions
 
-Xeito supports all JavaScript expressions inside of the template literals, you can use any valid JavaScript expression inside of the interpolation, for example:
+All JavaScript expressions are supported inside of the template literals, you can use any valid JavaScript expression inside of the interpolation, for example:
 
 ```ts
 render() {
@@ -85,8 +92,8 @@ render() {
     <div class=${'classPrefix-' + this.divClass}></div>
   `;
 }
-
 ```
+This is a very powerful feature that allows you to create complex templates without the need to create a lot of methods in your component class.
 
 ## Sparse Attribute Interpolation
 
@@ -101,7 +108,7 @@ If you try to use sparse attribute interpolations, the parser will throw a ``Bad
 
 ## Event Listeners
 
-You can bind event listeners to any element/component using the ``@`` prefix or the ``on`` attribute:
+You can bind event listeners to any component using the ``@`` prefix or the ``on`` attribute:
 
 ```ts
 html`<button @click=${this.handleClick}>Click Me</button>`;
@@ -109,6 +116,6 @@ html`<button @click=${this.handleClick}>Click Me</button>`;
 html`<button onclick=${this.handleClick}>Click Me</button>`;
 ```
 
-The event listener will be added to the element/component and will be removed when the element/component is removed from the DOM.
+The event listener will be added to the component and will be removed when the component is removed from the DOM.
 
 We'll see more about event listeners and how to use them in the [Event Handling](./event-handling.md) section.
