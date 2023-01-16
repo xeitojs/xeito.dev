@@ -76,8 +76,9 @@ to compose the template inside the render method of a component and it allows yo
 ## Components
 
 Components are the building blocks you will use to compose an application using Xeito.
-A component is just a Typescript class with a ``@Component()`` decorator, a ``render()``
-method that returns the template and, optionally, style strings.
+
+A component is just a Typescript class extending `XeitoComponent` with a ``@Component()`` decorator, a ``render()``
+method that returns the template and reactive properties decorated with ``@State()`` or ``@Prop()``.
 
 Xeito registers your components inside the [custom elements registry](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry), 
 so you can use them in your HTML templates. Even if Xeito leverages the web components standard, you don't need to know anything about it to use Xeito 
