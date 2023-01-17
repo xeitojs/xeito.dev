@@ -71,6 +71,31 @@ export class MyPipe {
 ```
 The transform method must return the transformed data to be rendered in the template.
 
+## Destroying
+
+Pipes are instantiated once for every use in the template and the transform method is called every time the data changes.
+When the component is destroyed, the pipe is also destroyed and the transform method is no longer called.
+We can execute logic when the pipe is destroyed by implementing the `destroy()` method.
+
+```typescript
+import { Pipe } from '@xeito/core';
+
+@Pipe({
+  selector: 'myPipe'
+})
+export class MyPipe {
+
+  transform(data: string, param1: string, param2: number) {
+    // Do something with the data
+  }
+
+  destroy() {
+    // Do something when the pipe is destroyed
+  }
+}
+```
+This method is optional, but it can be useful for cleaning up resources. For example, if the pipe is using an observable, we can unsubscribe from it here.
+
 ## Caching
 
 Pipe transformations are cached by default. This means that if the pipe is called with the same parameters, the cached value will be returned instead of recomputing the transformation, which can be expensive.

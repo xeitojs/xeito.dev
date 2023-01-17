@@ -6,7 +6,7 @@ They can be imported by a component directly or provided by a Plugin globally.
 ## Creating an action
 
 To create an action we'll use the `@Action()` decorator. 
-This decorator will mark the class as an action and allow us to import it into a component later.
+This decorator will mark the class as an action, add the required functionality and allow us to import it into a component later.
 
 ```typescript
 import { Action } from '@xeito/core';
@@ -73,8 +73,7 @@ render() {
 ## Modify the action's element
 
 So far we've seen how to create a new action and how to use it in a component but we haven't seen how to modify the element that the action is being used on.
-To access the element and parameters passed to the action, we have to use the constructor of the action class, since a new instance of the action is created
-on every render.
+To access the element and parameters passed to the action, we have to add a `setup()` method to the action class.
 
 ```typescript
 import { Action } from '@xeito/core';
@@ -83,7 +82,8 @@ import { Action } from '@xeito/core';
   selector: 'myAction'
 })
 export class MyAction {
-  constructor(private element: HTMLElement, private params: any) {
+  
+  setup(private element: HTMLElement, private params: any) {
     /**
      * The element parameter is the element that the action is being used on 
      * (the parent of the interpolation)
@@ -96,4 +96,42 @@ export class MyAction {
 ```
 *__Note__: The `params` parameter is optional, so we can omit it if we don't need it.*
 
-And that's it. We've created an action and used it in a component. Remeber that action instances are created on every render, so __we can't use them to store state__.
+And that's it. We've created an action and used it in a component.
+
+## Cleaning up the action
+
+Actions have access to the DOM element that they're being used on, that means that they can also add event listeners to it.
+This creates a problem when the element is modified or changed from outside the action or when the action is removed from the component.
+For this reason, actions can also implement a `cleanup()` method that gets called on every render of the parent component and when the component is removed from the DOM.
+
+```typescript
+import { Action } from '@xeito/core';
+
+@Action({
+  selector: 'myAction'
+})
+export class MyAction {
+  
+  setup(private element: HTMLElement) {
+    element.addEventListener('click', this.onClick);
+    // Add the event listener
+  }
+
+  cleanup() {
+    element.removeEventListener('click', this.onClick);
+    // Remove the event listener
+  }
+
+  private onClick(e: Event) {
+    console.log('clicked');
+  }
+}
+```
+*__Note__: The `cleanup()` method is optional, so we can omit it if we don't need it.*
+
+## Action Lifecycle
+
+An action is created once for every time it's used in a component and the instance is kept alive until the component is removed from the DOM.
+The `cleanup()` method is called on every render, followed by the `setup()` method.
+
+Once the parent component is removed from the DOM, the `cleanup()` method is called again and then the action is destroyed.
