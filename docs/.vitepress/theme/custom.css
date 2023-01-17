@@ -1,10 +1,20 @@
 :root {
-  --vp-c-brand: #646cff;
-  --vp-c-brand-light: #747bff;
-  --vp-c-brand-dark: #747bff;
+  --vp-c-brand: #7775fe;
+  --vp-c-brand-light: #9f3ef4;
+  --vp-c-brand-dark: #9f3ef4;
 
   --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
+  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #b025ef, #7775fe);
+}
+
+.VPButton.medium.brand {
+  border-color: #aa4dfc;
+  background-color: #9f3ef4;
+}
+
+.VPButton.medium.brand:hover {
+  border-color: #ba84e9;
+  background-color: #a953f5;
 }
 
 #docsearch .DocSearch.DocSearch-Button {
@@ -71,4 +81,11 @@ html.dark .DocSearch.DocSearch-Button .DocSearch-Button-Keys {
 
 .flex-logo {
   display: none;
+}
+
+.footer-year {
+  color: #2b2b2b;
+}
+html.dark .footer-year {
+  color: #e2e2e2;
 }

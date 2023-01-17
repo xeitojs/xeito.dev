@@ -23,7 +23,7 @@ export default {
     footer: {
       message: `
         Released under the 
-        <a href="https://opensource.org/licenses/MIT" target="_blank" style="color: #fff">MIT License</a>.
+        <a href="https://opensource.org/licenses/MIT" target="_blank" class="footer-year">MIT License</a>.
       `,
       copyright: 'Copyright © 2022 Samuel Bazaga'
     },
