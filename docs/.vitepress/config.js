@@ -60,6 +60,16 @@ export default {
         ]
       },
       {
+        text: 'Stores',
+        items: [
+          { text: `What is a store`, link: '/stores/what-is-a-store' },
+          { text: 'WriteStore', link: '/stores/write-store' },
+          { text: 'ReadStore', link: '/stores/read-store' },
+          { text: 'MixedStore', link: '/stores/mixed-store' },
+          { text: 'Stores in components', link: '/stores/stores-in-components' }
+        ]
+      },
+      {
         text: 'Reusability',
         items: [
           { text: 'Services', link: '/reusability/services' },
