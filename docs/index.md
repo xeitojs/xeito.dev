@@ -32,7 +32,6 @@ features:
       Nested routes, route guards, route params, and more are all supported out of the box.
   - icon: 🪄
     title: Reactivity by default
-    details: Xeito ships with RxJS and uses it under the hood, providing you with access to all the power of its operators and observables.
-      All the benefits of reactive programming are available to you with no extra effort.
+    details: Xeito includes a powerful reactivity system that allows your components to react to changes in the state. Using Xeito Stores, you can create reactive state containers that can be shared across your application.
 
 ---
