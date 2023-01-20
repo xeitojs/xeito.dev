@@ -74,35 +74,36 @@ This can be coupled with the power of [RxJS](https://rxjs.dev/) to create reacti
 
 ```typescript
 import { Injectable } from '@xeito/injection';
-import { BehaviorSubject } from 'rxjs';
+import { WriteStore } from '@xeito/store';
 
 @Injectable({
   selector: 'myService'
 })
 export class MyService {
 
-  public counter$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  public $counter: WriteStore<number> = new WriteStore<number>(0);
   
   sumToCounter(value: number) {
-    this.counter$.next(this.counter$.getValue() + value);
+    this.$counter.set(this.$counter.value + value);
   }
 
   multiplyToCounter(value: number) {
-    this.counter$.next(this.counter$.getValue() * value);
+    this.$counter.set(this.$counter.value * value);
   }
 
   resetCounter() {
-    this.counter$.next(0);
+    this.$counter.set(0);
   }
 
 }
 ```
-This service exposes a `counter$` property that is a `BehaviorSubject` of type `number`. This property can be subscribed to from 
+This service exposes a `$counter` property that is a [`WriteStore`](../stores/write-store.md) of type `number`. This property can be subscribed to from 
 the outside and will emit the current value of the counter every time it changes.
 We can then use this service in a component to subscribe to the counter and update the UI every time it changes.
 
 ```typescript
 import { Component, XeitoComponent, Inject, html } from '@xeito/injection';
+import { Subscription } from '@xeito/store';
 import { MyService } from './my-service';
 
 @Component({
@@ -114,10 +115,16 @@ export class MyComponent extends XeitoComponent {
   @State() count: number = 0;
   @Inject() myService: MyService;
 
+  private subscription: Subscription;
+
   onDidMount() {
-    this.myService.counter$.subscribe(counter => {
+    this.subscription = this.myService.$counter.subscribe(counter => {
       this.count = counter;
     });
+  }
+
+  onUnmount() {
+    this.subscription.unsubscribe();
   }
 
   render() {

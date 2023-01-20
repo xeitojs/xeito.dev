@@ -94,9 +94,9 @@ export class MyPipe {
   }
 }
 ```
-This method is optional, but it can be useful for cleaning up resources. For example, if the pipe is using an observable, we can unsubscribe from it here.
+This method is optional, but it can be useful for cleaning up resources. For example, if the pipe is using an [store](../stores/what-is-a-store.md), we can unsubscribe from it here.
 
 ## Caching
 
 Pipe transformations are cached by default. This means that if the pipe is called with the same parameters, the cached value will be returned instead of recomputing the transformation, which can be expensive.
-You have to take this into account when creating a pipe, as it can lead to unexpected behavior (for example if you depend on reactive data such as observables).
+You have to take this into account when creating a pipe, as it can lead to unexpected behavior (for example if you depend on reactive data such as stores).

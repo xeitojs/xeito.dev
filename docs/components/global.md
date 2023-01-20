@@ -23,7 +23,7 @@ by passing it as a parameter to the decorator.
 //=> Will retrieve the global property named 'myGlobalProperty' too
 ```
 
-Global properties can contain any kind of data that the Plugin wants to provide, including primitive types, objects, arrays, Observables... etc.
+Global properties can contain any kind of data that the Plugin wants to provide, including primitive types, objects, arrays, [stores](../stores/what-is-a-store.md)... etc.
 
 A good example of this is the Router Plugin, which provides a global property named `router` which is an object with differnt properties and methods that can be used to navigate through the application.
 
