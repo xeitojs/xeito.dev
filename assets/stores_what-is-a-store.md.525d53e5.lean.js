@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a,a as o}from"./app.7ef59a3a.js";const f=JSON.parse('{"title":"What is a Store?","description":"","frontmatter":{},"headers":[],"relativePath":"stores/what-is-a-store.md"}'),s={name:"stores/what-is-a-store.md"},n=o("",7),i=[n];function r(c,p,h,l,d,m){return a(),t("div",null,i)}const u=e(s,[["render",r]]);export{f as __pageData,u as default};
