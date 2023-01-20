@@ -119,3 +119,13 @@ html`<button onclick=${this.handleClick}>Click Me</button>`;
 The event listener will be added to the component and will be removed when the component is removed from the DOM.
 
 We'll see more about event listeners and how to use them in the [Event Handling](./event-handling.md) section.
+
+## Self-Closing Tags
+
+It is possible to use self-closing tags for any element (as long as you don't need to add children to it):
+
+```typescript 
+html`<app-counter />`; // Will render <app-counter></app-counter>
+html`<app-counter .prop=${this.prop} />`;
+html`<a href="example.com"/>`; // Will render <a href="example.com"></a>
+```
