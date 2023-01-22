@@ -1,9 +1,11 @@
 import { defineConfig } from 'vitepress';
+import axios from 'axios';
 
 export default async function() { 
   
-  const xeitoLatestRelease = await fetch('https://api.github.com/repos/aerotoad/xeito/releases/latest').then(res => res.json());
-  
+  //const xeitoLatestRelease = await fetch('https://api.github.com/repos/aerotoad/xeito/releases/latest').then(res => res.json());
+  const xeitoLatestRelease = await axios.get('https://api.github.com/repos/aerotoad/xeito/releases/latest').then(res => res.data);
+
   return defineConfig({
     base: '/',
     title: 'Xeito',
