@@ -1,5 +1,6 @@
 ---
 layout: home
+titleTemplate: 'Harness the power of the web'
 
 hero:
   name: Xeito Framework
