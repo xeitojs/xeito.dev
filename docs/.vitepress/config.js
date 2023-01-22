@@ -1,6 +1,6 @@
 export default {
   
-  base: '/xeito-docs/',
+  base: '/',
   title: 'Xeito',
   description: 'Typescript framework for building web applications',
   appearance: 'dark',
