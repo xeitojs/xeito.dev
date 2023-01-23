@@ -1,6 +1,6 @@
 # Template Syntax
 
-As we mentioned in the [Introduction](../guide/introduction.md#tagged-template-literals) guide, the component template is defined using [tagged template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals),
+As we mentioned in the [Introduction](../introduction.md#tagged-template-literals) guide, the component template is defined using [tagged template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals),
 which allows us to write HTML inside of JavaScript (without transpilation) and create our UI declaratively.
 All the templates can be syntactically valid HTML, but they can also contain special specific tags and attributes that allow us to create dynamic components and 
 bind data and events to the DOM easily.
