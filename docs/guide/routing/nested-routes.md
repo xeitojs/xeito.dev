@@ -48,7 +48,7 @@ import { Component, XeitoComponent, html } from '@xeito/core';
 import { RouterSlot } from '@xeito/router';
 
 @Component({
-  selector: 'app-router'
+  selector: 'app-user'
 })
 export class UserComponent extends XeitoComponent {
 
@@ -62,4 +62,16 @@ export class UserComponent extends XeitoComponent {
 ```
 Now Xeito Router will render the nested components inside the `<router-slot>` whenever the URL matches the nested route.
 
-For example, the route `/user/bob/profile` will render the `UserProfileComponent` inside the `<router-slot>` of the `UserComponent` template.
+For example, the route `/user/bob/profile` will render the `UserProfileComponent` inside the `<router-slot>` of the `UserComponent` template 
+creating the following DOM structure:
+
+```html
+<app-user>
+  <h1>User</h1>
+  <router-slot>
+    <app-user-profile>
+      <h1>User Profile</h1>
+    </app-user-profile>
+  </router-slot>
+</app-user>
+```
