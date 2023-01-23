@@ -21,7 +21,7 @@ that helps you develop user applications, no matter the complexity.
 
 Let's see an example of a barebones Xeito application:
 
-```ts
+```typescript
 // main.ts
 import { Xeito } from '@xeito/core';
 import { AppComponent } from './app-component';
@@ -30,7 +30,7 @@ const app = new Xeito(AppComponent);
 app.boostrap('#app');
 ```
 
-```ts
+```typescript
 // app-component.ts
 import { Component, XeitoComponent, State, html } from '@xeito/core';
 
@@ -102,7 +102,7 @@ This can sound confusing, but in reality it's very simple to implement. Let's se
 
 We start by creating a new service like this:
 
-```ts
+```typescript
 // my-service.ts
 @Injectable({
   selector: 'greeterService'
@@ -118,7 +118,7 @@ export class GreeterService {
 ```
 
 And then we *inject* it into a component
-```ts
+```typescript
 // my-component.ts
 @Component()
 export class MyComponent {
