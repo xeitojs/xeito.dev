@@ -28,4 +28,4 @@
 
 This is the repository that contains the documentation site for [Xeito Framework](https://github.com/aerotoad/xeito). 
 
-Built with [VitePress](https://github.com/vuejs/vitepress)
+Built with [VitePress](https://github.com/vuejs/vitepress).
