@@ -33,6 +33,6 @@ features:
       Nested routes, route guards, route params, and more are all supported out of the box.
   - icon: 🪄
     title: Reactivity by default
-    details: Xeito includes a powerful reactivity system that allows your components to react to changes in the state. Using Xeito Stores, you can create reactive state containers that can be shared across your application.
+    details: Xeito includes a powerful reactivity system that allows your components to react to changes in the state. Using Xeito Stores, you can create reactive state containers that can be shared across your application..
 
 ---
