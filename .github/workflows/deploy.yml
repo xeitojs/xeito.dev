@@ -1,13 +1,5 @@
 name: Deploy
 
-permissions:
-  actions: write
-  checks: write
-  contents: write
-  deployments: write
-  pull-requests: read
-  statuses: write
-
 on:
   workflow_dispatch:
   push:
@@ -34,6 +26,6 @@ jobs:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          # github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: docs/.vitepress/dist
           cname: xeito.dev
