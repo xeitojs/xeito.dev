@@ -82,6 +82,7 @@ export default async function() {
             { text: 'Imperative DOM', link: '/guide/components/imperative-dom' },
             { text: 'Global properties', link: '/guide/components/global' },
             { text: 'Manual Updates', link: '/guide/components/manual-updates' },
+            { text: 'Styling', link: '/guide/components/styling' },
           ]
         },
         {
