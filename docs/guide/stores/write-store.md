@@ -22,6 +22,7 @@ store.subscribe((value) => {
   console.log('The value changed to', value);
 });
 ```
+The store will call the callback inmediately with the current value it contains.
 
 ## Unsubscribing
 
@@ -67,56 +68,42 @@ store.subscribe((value) => {
 store.set('new value'); // Logs 'new value' in the subscription
 ```
 
-## Updater function
+## Store callback
 
-The constructor of the `WriteStore` accepts an optional second parameter.
-This parameter is a function that will be called every time the store is updated.
-
-The updater function receives the current value of the store as the first argument and a `set` function as the second argument.
-
-```typescript
-(currentValue: T, set: (newValue: T) => void) => any | Function;
-```
-
-The updater function can return a value or a function. If it returns a value, that value will be automatically set as the new value of the store.
-If it returns a function, that function will be called when the last subscriber unsubscribes from the store and before the updater function is called again.
+It's also possible to pass a second argument to the `WriteStore` constructor, this must be a function 
+that will be called when the number of subscribers goes from **zero to one**, but not afterwards.
+This function receives a single `set` function that can be used to change the value of the store and it must
+return a `stop` function that will be called when the last subscriber unsubscribes (**one to zero**).
 
 ```typescript
 import { WriteStore } from '@xeito/store';
 
-const store: WriteStore<string> = new WriteStore('initial value', (value: string, set: Function) => {
-  console.log('The value changed to', currentValue);
+const store = new WriteStore('initial value', (set) => {
+  // Change the value every second after the first subscriber subscribes
+  const interval = setInterval(() => {
+    set('new value'); 
+  }, 1000);
+
+  // Stop the interval when the last subscriber unsubscribes
   return () => {
-    console.log('Cleaning up');
+    clearInterval(interval); 
   };
 });
 ```
 
-We can use this to create a store that will modify the value of the store when it's updated:
+## Update method
+
+Another way to change the value of the store is by using the `.update` method. 
+This method receives a function that will be called with the current value of the store and must return the new value:
 
 ```typescript
 import { WriteStore } from '@xeito/store';
 
-const store: WriteStore<number> = new WriteStore(0, (value: number) => value + 1);
+const store = new WriteStore(0);
+
+store.subscribe((value) => {
+  console.log(value); // Logs 0
+});
+
+store.update((value) => value + 1); // Logs 1 in the subscription
 ```
-The store above will add 1 to the value every time it's updated. This means we can call the `.set` method like this:
-
-```typescript
-store.set(1); // Store value is now 2 ((value: number) => value + 1(1))
-store.set(2); // Store value is now 3 ((value: number) => value + 1(2))
-```
-
-## Modifying the updater function
-
-We can also modify the updater function after the store is created by using the `.update` method:
-
-```typescript
-import { WriteStore } from '@xeito/store';
-
-const store: WriteStore<number> = new WriteStore(0, (value: number) => value + 1);
-
-store.update((value: number) => value + 2);
-
-store.set(1); // Store value is now 4 ((value: number) => value + 2(1))
-```
-Setting a new updater function will also call the new updater function with the current value of the store.

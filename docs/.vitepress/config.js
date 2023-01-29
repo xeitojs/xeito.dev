@@ -91,7 +91,7 @@ export default async function() {
             { text: `What is a store`, link: '/guide/stores/what-is-a-store' },
             { text: 'WriteStore', link: '/guide/stores/write-store' },
             { text: 'ReadStore', link: '/guide/stores/read-store' },
-            { text: 'MixedStore', link: '/guide/stores/mixed-store' },
+            { text: 'DerivedStore', link: '/guide/stores/derived-store' },
             { text: 'Stores in components', link: '/guide/stores/stores-in-components' }
           ]
         },

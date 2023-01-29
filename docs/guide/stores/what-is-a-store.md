@@ -13,6 +13,6 @@ Some examples of when you might want to use a store:
 - Keeping track of events that happen in your application.
 - Sharing reactive data between your xeito application and native js modules.
 
-Xeito provides three types of stores: `WriteStore`, `ReadStore` and `MixedStore`, each one with a different purpose.
+Xeito provides three types of stores: `WriteStore`, `ReadStore` and `DerivedStore`, each one with a different purpose.
 
 We'll see each one of them in the following sections.

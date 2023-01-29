@@ -85,3 +85,6 @@ export class MyComponent extends XeitoComponent {
 Now that's a lot simpler! 
 
 The `@State` decorator will automatically subscribe to the store and unsubscribe from it when the component unmounts, it supports all the types of stores, and it will trigger updates when the store's value changes.
+
+There is no magic behind the `@State` decorator handling of stores. When a decorated property is set, the decorator will check if it has a `.subscribe` method.
+If it does, then it will create new subscription and trigger updates when the value changes, then call the returned `.unsubscribe` before the component is destroyed.
