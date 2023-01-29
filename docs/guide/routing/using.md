@@ -131,9 +131,9 @@ The `router` property has the following structure:
 
 ```typescript
 interface XeitoRouter {
-  routeUpdate: MixedStore<Update>;
-  routeParams: MixedStore<RouteParams>;
-  location: MixedStore<Location>;
+  routeUpdate: ReadStore<Update>;
+  routeParams: ReadStore<RouteParams>;
+  location: ReadStore<Location>;
   push: (path: string, state?: any) => void;
   replace: (path: string, state?: any) => void;
   go: (n: number) => void;

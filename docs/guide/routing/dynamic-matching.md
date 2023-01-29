@@ -16,7 +16,7 @@ A param is denoted by a colon (`:`) followed by the name of the parameter. The n
 ## Accessing Route Parameters
 
 The value of all the parameters will be available in the `router` global property (see [Global Properties](../components/global)) by accessing the `routeParams` property.
-The `routeParams` property is a `MixedStore` object, so you can access the value either by subscribing to it or by accesing the `value` property.
+The `routeParams` property is a `ReadStore` class, so you can access the value either by subscribing to it or by accesing the `value` property.
 
 
 ```typescript
@@ -35,12 +35,11 @@ export class AppComponent extends XeitoComponent {
     // params = { id: '123' }
     console.log(params.id); // 123
 
-    this.router.routeParams().subscribe(params => {
+    this.router.routeParams.subscribe(params => {
       console.log(params.id); // 123
-      // We will be notified every time the route params change
-      // This can result in unexpected behavior and multiple nulls values
-      // being passed to the callback as the routes are matched.
-      // Accessing the value property is recommended.
+      // We will be notified every time the route changes.
+      // This can lead to unexpected behaviour 
+      // if we get empty values during redirections
     });
   }
 }
