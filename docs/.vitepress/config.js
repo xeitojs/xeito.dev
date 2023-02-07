@@ -66,7 +66,8 @@ export default async function() {
           items: [
             { text: 'Creating an application', link: '/guide/essentials/application' },
             { text: 'Template syntax', link: '/guide/essentials/template-syntax' },
-            { text: 'Lists and conditionals', link: '/guide/essentials/lists-and-conditionals' },
+            { text: 'Conditional rendering', link: '/guide/essentials/conditional-rendering' },
+            { text: 'List rendering', link: '/guide/essentials/list-rendering' },
             { text: 'Event handling', link: '/guide/essentials/event-handling' }
           ]
         },
