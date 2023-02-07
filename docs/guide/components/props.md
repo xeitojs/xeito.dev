@@ -36,7 +36,7 @@ render() {
 }
 ```
 
-The properties decorated with the `@Prop()` decorator will automatically trigger a re-render when they are changed by the parent component.
+The properties decorated with the `@Prop()` decorator will automatically trigger an update when they are changed by the parent component.
 
 ## Reacting to Prop changes
 Sometimes you might need to execute custom code whenever a property is updated. For those cases Xeito provides a way to receive all the prop updates
@@ -77,5 +77,5 @@ myMethod() {
 
 ::: info Note on reactivity
 Even if you can access the attributes with the `getAttribute()` method, if you don't use the `@Prop()` decorator, the property won't be reactive.
-This means that if you change the attribute value, the property won't be updated and the component won't be re-rendered.
+This means that if you change the attribute value, the property won't be updated and the component won't trigger a template update.
 :::

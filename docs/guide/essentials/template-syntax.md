@@ -19,7 +19,7 @@ It can be seen as a very lightweight version of [lit-html](https://lit-html.poly
 The most basic binding is text interpolation using the standard syntaxt for interpolations inside of 
 [templates](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) ``${}``:
 
-```ts
+```typescript
 html`<div>Hello ${this.name}!</div>`;
 ```
 
@@ -33,13 +33,13 @@ Attribute and property bindings are supported out of the box, this means that yo
 
 You can bind data to an attribute like this:
 
-```ts
+```typescript
 html`<div class="${this.className}" customId=${this.customId}></div>`;
 ```
 
 Or to a property like this:
 
-```ts
+```typescript
 html`<input .value="${this.value}" .checked=${this.checked}>`;
 ```
 
@@ -56,7 +56,7 @@ Boolean attributes can indicate true/false values depending on the presence of t
 
 You can bind them like any other attribute, but a special shorthand syntax is available for boolean attributes by using the ``?`` prefix:
 
-```ts
+```typescript
 html`<button ?disabled=${this.disabled}>Can I click?</button>`;
 ```
 
@@ -70,7 +70,7 @@ For the dataset you can bind to the propery ``dataset`` like this: ``.dataset=${
 
 This is an example of how to bind to the ``aria`` and ``dataset``:
 
-```ts
+```typescript
 html`<div aria=${{labelledBy: 'id', role: 'button'}}></div>`;
 //=> <div aria-labelledby="id" role="button"></div>
 
@@ -82,7 +82,7 @@ html`<div .dataset=${{key: 'value', otherKey: 'otherValue'}} />`;
 
 All JavaScript expressions are supported inside of the template literals, you can use any valid JavaScript expression inside of the interpolation, for example:
 
-```ts
+```typescript
 render() {
   return html`
     <div>${this.number + 1}</div>
@@ -99,7 +99,7 @@ This is a very powerful feature that allows you to create complex templates with
 
 You cannot use sparse attribute interpolations, always use one interpolation to define each attribute, for example:
 
-```ts
+```typescript
 html`<div style="top:${x};left${y}"></div>`; // WRONG
 
 html`<div style=${`top:${x};left${y}`}></div>`; // CORRECT
@@ -110,7 +110,7 @@ If you try to use sparse attribute interpolations, the parser will throw a ``Bad
 
 You can bind event listeners to any component using the ``@`` prefix or the ``on`` attribute:
 
-```ts
+```typescript
 html`<button @click=${this.handleClick}>Click Me</button>`;
 
 html`<button onclick=${this.handleClick}>Click Me</button>`;

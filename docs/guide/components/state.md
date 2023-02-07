@@ -2,7 +2,7 @@
 
 ## The `@State()` decorator
 
-By default the properties of a Xeito component class won't trigger a re-render when they change, for that to happen
+By default the properties of a Xeito component class won't trigger an update when they change, for that to happen
 you need to use the `@State()` decorator to tell Xeito that the property should be watched for changes.
 
 ```typescript
@@ -31,11 +31,11 @@ export class MyCounter extends XeitoComponent {
   }
 }
 ```
-In this example we can see how the `count` property is decorated with the `@State()` decorator, this tells Xeito to watch the property for changes and re-render the component when it changes.
+In this example we can see how the `count` property is decorated with the `@State()` decorator, this tells Xeito to watch the property for changes and update the component when it changes.
 
 ## Updating Arrays and Objects
 
-Reactivity in Xeito is triggered by assignments, this means that methods that mutate arrays or objects won't trigger a re-render by themselves, you need to assign the new value to the property for it to trigger a re-render.
+Reactivity in Xeito is triggered by assignments, this means that methods that mutate arrays or objects won't trigger an update by themselves, you need to assign the new value to the property for it to trigger a re-render.
 
 You can fix this by assigning the new value to the property directly, for example:
 

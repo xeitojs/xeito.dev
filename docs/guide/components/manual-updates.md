@@ -69,6 +69,6 @@ export class MyComponent extends XeitoComponent {
     }
 }
 ```
-The `forceUpdate()` method will trigger a re-render of the component no matter what and without waiting for any batched updates, 
+The `forceUpdate()` method will trigger an update of the component's template no matter what and without waiting for any batched updates, 
 this means that if you call it multiple times in a row, multiple updates will be performed, so use it with caution 
 because it can have a negative impact on performance.
