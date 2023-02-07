@@ -158,6 +158,15 @@ export class MyComponent extends XeitoComponent {
 ```
 This way, you can keep your styles in a separate file, and you can also use them in other components.
 
+::: tip Importing multiple stylesheets
+The `static styles()` method can return an array of stylesheets, so you can import multiple stylesheets into your component.
+```typescript
+static styles() {
+  return [styles1, styles2];
+}
+```
+:::
+
 
 ## Disabling Shadow DOM globally
 
