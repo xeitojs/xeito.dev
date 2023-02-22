@@ -5,7 +5,7 @@ titleTemplate: 'Harness the power of the web'
 hero:
   name: Xeito Framework
   text: Harness the power of the web
-  tagline: Opinionated Typescript framework for building web applications.
+  tagline: Typescript framework for building web applications.
   image:
     src: /images/logo_gradient.svg
     alt: Xeito
