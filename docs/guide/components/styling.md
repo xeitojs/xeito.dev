@@ -13,7 +13,7 @@ and import your CSS files into your components.
 
 Since your components behave like regular HTML elements, you can use any CSS library or framework you want to style them such as [Bootstrap](https://getbootstrap.com/) or [Tailwind](https://tailwindcss.com/).
 
-If you created your project with the Xeito CLI, it will be automatically configured with [Parcel](https://parceljs.org/) to allow you to import CSS/SCSS files into your components. If you're using a different bundler, you'll need to configure it to allow you to import CSS files. Parcel also supports [CSS modules](https://parceljs.org/languages/css/#css-modules), which are a great way to avoid class name collisions, so we'll use them to style our component.
+If you created your project with the Xeito CLI, it will be automatically configured with [Vite](https://vitejs.dev/) and the SCSS preprocessor installed, to allow you to import CSS/SCSS files into your components. If you're using a different bundler, you'll need to configure it to allow you to import CSS files. Vite also supports [CSS modules](https://vitejs.dev/guide/features.html#css-modules), which are a great way to avoid class name collisions, so we'll use them to style our component.
 
 Let's create a component and style it with a CSS file called `my-component.module.css`.
 
