@@ -43,6 +43,7 @@ export default async function() {
 
       socialLinks: [
         { icon: 'github', link: 'https://github.com/aerotoad/xeito' },
+        { icon: 'twitter', link: 'https://twitter.com/xeitojs' }
       ],
 
       footer: {
