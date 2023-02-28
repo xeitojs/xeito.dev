@@ -1,6 +1,12 @@
 
 # Quick Start
 
+## Try Xeito Online
+
+You can try Xeito online without installing anything on your machine. <br>
+Just go to out [StackBlitz](https://stackblitz.com/edit/xeito-playground-02-2023?file=src%2Fapp%2Fapp-component.ts) 
+already configured with a complete build setup and start coding!
+
 ## Creating a Xeito application
 
 ::: tip PREREQUISITES
