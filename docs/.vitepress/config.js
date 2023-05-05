@@ -54,6 +54,10 @@ export default async function() {
         copyright: 'Copyright © 2022 Samuel Bazaga'
       },
 
+      search: {
+        provider: 'local'
+      },
+
       sidebar: [
         {
           text: 'Guide',

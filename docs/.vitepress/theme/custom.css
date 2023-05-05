@@ -19,68 +19,6 @@
   background-color: #a953f5;
 }
 
-#docsearch .DocSearch.DocSearch-Button {
-  border: 1px solid rgba(0,0,0,0.2);
-  border-radius: 10px;
-  height: fit-content;
-  padding: 5px 10px;
-  background: var(--vp-c-bg-alt);
-}
-
-.DocSearch.DocSearch-Button .DocSearch-Button-Placeholder {
-  color: #2b2b2b;
-}
-
-.DocSearch.DocSearch-Button .DocSearch-Button-Keys {
-  min-width: 0px;
-  border: 1px solid rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-}
-
-.DocSearch.DocSearch-Button .DocSearch-Button-Keys .DocSearch-Button-Key {
-  font-size: 10px;
-}
-
-html.dark #docsearch .DocSearch.DocSearch-Button {
-  border: 1px solid rgba(255,255,255,0.2);
-}
-
-html.dark #docsearch .DocSearch.DocSearch-Button .DocSearch-Button-Placeholder {
-  color: #e2e2e2;
-}
-
-html.dark .DocSearch.DocSearch-Button .DocSearch-Button-Keys {
-  min-width: 0px;
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 5px;
-  box-shadow: 0 1px 3px 0 rgba(179, 179, 179, 0.1), 0 1px 2px -1px rgb(179, 179, 179 / 0.1);
-}
-
-.VPNavBarSearch.search {
-  flex-grow: 1;
-  padding-left: 32px;
-}
-@media(max-width: 768px) {
-  .VPNavBarSearch.search {
-    padding-left: 0;
-    flex-grow: initial;
-  }
-
-  #docsearch .DocSearch.DocSearch-Button {
-    border: initial;
-    border-radius: 10px;
-    height: fit-content;
-    padding: 5px 10px;
-    background: initial;
-  }
-
-  html.dark #docsearch .DocSearch.DocSearch-Button {
-    border: initial;
-    background: initial;
-  }
-}
-
 .flex-logo {
   display: none;
 }
